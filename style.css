@@ -721,6 +721,32 @@ body {
 .nav__brand {
   margin: 0;
 }
+/* Logó stílus */
+.nav__logo-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Kör alakú logó */
+    overflow: hidden;
+    margin-right: 12px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff; /* Fehér háttér, ha a logó átlátszó */
+    border: 2px solid #eee; /* Szegély */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.nav__logo-image img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain; /* A logó arányosan jelenik meg */
+}
+
+.nav__brand {
+    display: flex;
+    align-items: center;
+}
 
 .nav__logo {
   margin: 0;
@@ -1332,5 +1358,4 @@ body {
     background-color: rgba(245, 245, 245, 0.9);
   }
 }
-
 
