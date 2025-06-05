@@ -5,7 +5,7 @@
   --color-surface: rgba(255, 255, 253, 1);
   --color-text: rgba(19, 52, 59, 1);
   --color-text-secondary: rgba(98, 108, 113, 1);
-  --color-primary: rgb(94, 255, 45);
+  --color-primary: rgb(39, 165, 56);
   --color-primary-hover: rgb(39, 165, 56);
   --color-primary-active: rgb(39, 165, 56);
   --color-secondary: rgba(94, 82, 64, 0.12);
@@ -821,7 +821,7 @@ body {
 .hero__content {
   position: relative;
   z-index: 1;
-  color: rgb(255, 54, 54);
+  color: rgb(123, 123, 123);
   max-width: var(--container-xl);
   margin: 0 auto;
   padding: 0 var(--space-16);
@@ -1360,8 +1360,8 @@ body {
 }
 /* Profilkép stílusok a bemutatkozás szekcióhoz */
 .intro__avatar {
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0,0,0,0.15);
@@ -1382,3 +1382,56 @@ body {
         height: 150px;
     }
 }
+.referenciak {
+  background: var(--color-surface);
+}
+
+.galeria-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.galeria {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  animation: galeria-scroll 90s linear infinite; /* 15 kép x 6s = 90s */
+  width: max-content; /* Fontos! */
+  padding-right: 2rem; /* Csúszás elkerüléséhez */
+}
+
+.galeria__img {
+  height: 300px;
+  width: auto;
+  min-width: 350px; /* Fix szélesség az összes képnek */
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  object-fit: cover;
+  transition: transform 0.6s;
+  flex-shrink: 0; /* Ne zsugorodjon össze */
+}
+
+.galeria__img:hover {
+  transform: scale(1.07) rotate(-2deg);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+}
+
+@keyframes galeria-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-70%); } /* Teljes galéria szélesség */
+}
+
+@media (max-width: 600px) {
+  .galeria__img {
+    height: 120px;
+    min-width: 200px;
+  }
+  .galeria {
+    gap: 1rem;
+  }
+}
+
