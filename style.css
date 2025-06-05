@@ -821,7 +821,7 @@ body {
 .hero__content {
   position: relative;
   z-index: 1;
-  color: white;
+  color: rgb(255, 54, 54);
   max-width: var(--container-xl);
   margin: 0 auto;
   padding: 0 var(--space-16);
