@@ -1363,7 +1363,7 @@ body {
   }
   
   .nav__toggle span {
-    background-color: rgba(245, 245, 245, 0.9);
+    background-color: rgba(70, 70, 70, 0.9);
   }
 }
 /* Profilkép stílusok a bemutatkozás szekcióhoz */
@@ -1496,4 +1496,13 @@ body {
         transform: rotate(90deg);
         padding: 0.5rem 0;
     }
+}
+@media (max-width: 768px) and (prefers-color-scheme: dark) {
+  .nav__menu {
+    background-color: #fafafa;
+    border-bottom: 1px solid #ccc;
+  }
+  .nav__link {
+    color: #222;
+  }
 }
