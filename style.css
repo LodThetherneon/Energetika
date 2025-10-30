@@ -805,19 +805,24 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 32px;
 }
-
-.hero__bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
-  z-index: -1;
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 32px;
+  background: linear-gradient(135deg, #232427 60%, #181818 40%);
 }
-
+.hero__image {
+  flex: 3 1 0;
+  min-height: 350px;
+  background: url('images/epulet.jpg') center center / cover no-repeat;
+  border-radius: 0 24px 24px 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+}
 .hero__content {
   position: relative;
   z-index: 1;
@@ -828,11 +833,47 @@ body {
   width: 100%;
 }
 
+.hero__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+  padding-top: 40px; 
+  background: none;
+  /* vagy kisebb */
+}
+
+.hero__main {
+  flex: 2 1 0;
+  padding-left: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero {
+  background: linear-gradient(135deg, #232427 60%, #181818 40%);
+}
+  @media (max-width: 768px) {
+  .hero__content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 24px;
+  }
+  .hero__image {
+    min-height: 180px;
+    border-radius: 16px;
+    margin-top: 32px;
+    background-position: center center;
+    background-size: cover;
+  }
+}
 .hero__title {
   font-size: clamp(var(--font-size-3xl), 5vw, 4rem);
   font-weight: var(--font-weight-bold);
   margin-bottom: var(--space-16);
   line-height: var(--line-height-tight);
+  color: #fafafa;
 }
 
 .hero__subtitle {
@@ -1295,8 +1336,8 @@ body {
   }
 
   .hero {
-    padding-top: 70px;
-    min-height: 90vh;
+    padding-top: 24px;
+    min-height: 80vh;
   }
 
   .hero__title {
@@ -1506,3 +1547,4 @@ body {
     color: #222;
   }
 }
+
