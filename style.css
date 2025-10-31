@@ -1498,7 +1498,7 @@ body {
 .flowchart {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start, flex-end;
     flex-wrap: wrap;
     gap: 1rem;
     margin: 0 auto;
@@ -1508,7 +1508,8 @@ body {
     flex: 1 1 200px;
     padding: 1.5rem;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color:rgb(74, 160, 160) ;
+    box-shadow: 0 4px 8px rgba(250, 239, 239, 0.1);
     transition: transform 0.2s;
 }
 .step:hover {
