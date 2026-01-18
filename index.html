@@ -17,8 +17,9 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  gtag('config', 'G-7ZFNBBCRRQ');
+  
+    // IP anonimizálás (ajánlott EU adatvédelemhez)
+  gtag('config', 'G-7ZFNBBCRRQ', { 'anonymize_ip': true });
 </script>
 <body>
     <!-- Header & Navigation -->
