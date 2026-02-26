@@ -344,10 +344,15 @@
                         </div>
                     </div>
                 </div>
-                    <form action="https://formsubmit.co/energetikaitanusito1@gmail.com" method="POST" >
-                        <input type="hidden" name="_captcha" value="false">
+                    <form action="https://formsubmit.co/energetikaitanusito1@gmail.com" method="POST">
+                        <!-- ✅ 1. reCAPTCHA bekapcsolva (spam védelem) -->
+                        <input type="hidden" name="_captcha" value="true">
                         <input type="hidden" name="_next" value="https://energetikaitanusito1.hu/koszonjuk">
                         <input type="hidden" name="_subject" value="Új megkeresés - Energetikai tanúsítvány">
+                        <!-- ✅ 2. Blacklist: ezeket tartalmazó üzenetek automatikusan blokkolva -->
+                        <input type="hidden" name="_blacklist" value="viagra, casino, crypto, bitcoin, seo, backlink, loan, porn, free money, click here, buy now, investment offer, make money">
+                        <!-- ✅ 3. Honeypot: botok kitöltik, emberek nem látják – ha kitöltik, a beküldés blokkolva -->
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                         
                         <div class="form-group">
                             <label for="name" class="form-label">Név *</label>
