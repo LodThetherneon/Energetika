@@ -1508,7 +1508,7 @@ body {
     flex: 1 1 200px;
     padding: 1.5rem;
     border-radius: 10px;
-    background-color:rgb(221, 240, 240) ;
+    background-color:rgb(55, 128, 138) ;
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     transition: transform 0.2s;
 }
