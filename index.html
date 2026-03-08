@@ -4,371 +4,386 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energetikai Tanúsítvány - Kiss Péter István | Professzionális Energetikai Tanúsítás Győr, Budapest</title>
-    <meta name="description" content="Professzionális energetikai tanúsítvány készítés Budapest és Pest megyében. Gyors, megbízható szolgáltatás versenyképes árakkal.">
-    <meta name="description" content="Energetikai tanúsítvány árak Győr: társasházi lakás 25-27.000 Ft, családi ház 30.000 Ft. Helyszíni felmérés, gyors ügyintézés, 5 év érvényesség.">
+    <meta name="description" content="Professzionális energetikai tanúsítvány készítés Budapest, Pest megye és Győr-Moson-Sopron megyében. Gyors, megbízható szolgáltatás versenyképes árakkal. Energetikai tanúsítvány árak Győr: társasházi lakás 25-27.000 Ft, családi ház 30.000 Ft. Helyszíni felmérés, gyors ügyintézés, 5 év érvényesség.">
 
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="Images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZFNBBCRRQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-7ZFNBBCRRQ', { 'anonymize_ip': true });
+    </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZFNBBCRRQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-    // IP anonimizálás (ajánlott EU adatvédelemhez)
-  gtag('config', 'G-7ZFNBBCRRQ', { 'anonymize_ip': true });
-</script>
 <body>
     <!-- Header & Navigation -->
     <header class="header">
-    <nav class="nav container">
-        <div class="nav__brand">
-            <div class="nav__logo-image">
-                <img src="Images/logo.png" alt="Kiss Péter Tanusító logó">
-            </div>
-            <h2 class="nav__logo">Kiss Péter Tanusító</h2>
-        </div>
-        <ul class="nav__menu" id="navMenu">
-            <li class="nav__item"><a href="#kezdolap" class="nav__link">Kezdőlap</a></li>
-            <li class="nav__item"><a href="#bemutatkozas" class="nav__link">Bemutatkozás</a></li>
-            <li class="nav__item"><a href="#szolgaltatasok" class="nav__link">Szolgáltatások</a></li>
-            <li class="nav__item"><a href="#referenciak" class="nav__link" id="referenciakBtn">Referencia Munkák</a></li>
-            <li class="nav__item"><a href="#kapcsolat" class="nav__link">Kapcsolat</a></li>
-        </ul>
-        <button class="nav__toggle" id="navToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-    </nav>
-</header>
-
-
-    <!-- Hero Section -->
-    <section id="kezdolap" class="hero">
-        <div class="hero__content">
-            <div class="hero__main">
-                <div class="hero__text">
-                    <h1 class="hero__title">Kiss Péter István hiteles energetikai tanúsítvány készítés</h1>
-                    <p class="hero__subtitle">Gyors, megbízható és versenyképes áron készítek Budapest, Pest megye és Győr-Moson-Sopron területén, 5 évig érvényes hiteles energetikai tanúsítványokat.</p>
-                    <div class="hero__features">
-                        <div class="hero__feature">
-                            <span class="hero__icon">✓</span>
-                            <span>24-48 órán belül</span>
-                        </div>
-                        <div class="hero__feature">
-                            <span class="hero__icon">✓</span>
-                            <span>Helyszíni felmérés</span>
-                        </div>
-                        <div class="hero__feature">
-                            <span class="hero__icon">✓</span>
-                            <span>5 év érvényesség</span>
-                        </div>
-                        <div class="hero__feature">
-                            <span>Hívjon bizalommal: 06 20 228 9575</span>
-                        </div>
-                    </div>
-                    <a href="#kapcsolat" class="btn btn--primary btn--lg hero__cta">Ajánlatot Kérek</a>
+        <nav class="nav container">
+            <div class="nav__brand">
+                <div class="nav__logo-image">
+                    <img src="images/logo.png" alt="Kiss Péter Tanúsító logó">
                 </div>
+                <h2 class="nav__logo">Kiss Péter Tanúsító</h2>
             </div>
-        </div>
-    </section>
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="#kezdolap" class="nav__link">Kezdőlap</a></li>
+                <li class="nav__item"><a href="#bemutatkozas" class="nav__link">Bemutatkozás</a></li>
+                <li class="nav__item"><a href="#szolgaltatasok" class="nav__link">Szolgáltatások</a></li>
+                <li class="nav__item"><a href="#referenciak" class="nav__link" id="referenciakBtn">Referencia Munkák</a></li>
+                <li class="nav__item"><a href="#kapcsolat" class="nav__link">Kapcsolat</a></li>
+            </ul>
+            <button class="nav__toggle" id="navToggle" aria-label="Menü megnyitása">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
 
-    <!-- Introduction Section -->
-    <section id="bemutatkozas" class="intro section">
-        <div class="container">
-            <div class="intro__content">
-                <div class="intro__image">
-                    <div class="intro__avatar">
-                        <img src="images/profil-kép.jpg" alt="Kiss Péter István
-                        profilkép" class="intro__avatar-img">
-                    </div>
-                </div>
-                <div class="intro__text">
-                    <h2 class="section__title">Bemutatkozás</h2>
-                    <h3 class="intro__name">Kiss Péter István vagyok</h3>
-                    <p class="intro__title">Okleveles gépészmérnök, energetikai tanúsító</p>
-                    
-                    <p class="intro__description">
-                        Több mint 15 éve foglalkozom energetikai tanúsítványok készítésével Budapest környékén és mostantól Győr környékén is. Eddigi munkám során 10.000+ tanúsítványt készítettem el, mindig a legmagasabb szakmai színvonalon és a határidőket pontosan betartva.
-                    </p>
-                    
-                    <div class="intro__credentials">
-                        <div class="credential">
-                            <strong>TÉ jogosultsági szám:</strong> 01-20058, 01-64094
+    <main>
+        <!-- Hero Section -->
+        <section id="kezdolap" class="hero">
+            <div class="hero__content">
+                <div class="hero__main">
+                    <div class="hero__text">
+                        <h1 class="hero__title">Kiss Péter István hiteles energetikai tanúsítvány készítés</h1>
+                        <p class="hero__subtitle">
+                            Gyors, megbízható és versenyképes áron készítek Budapest, Pest megye és
+                            Győr-Moson-Sopron területén, 5 évig érvényes hiteles energetikai tanúsítványokat.
+                        </p>
+                        <div class="hero__features">
+                            <div class="hero__feature">
+                                <span class="hero__icon">✓</span>
+                                <span>24-48 órán belül</span>
+                            </div>
+                            <div class="hero__feature">
+                                <span class="hero__icon">✓</span>
+                                <span>Helyszíni felmérés</span>
+                            </div>
+                            <div class="hero__feature">
+                                <span class="hero__icon">✓</span>
+                                <span>5 év érvényesség</span>
+                            </div>
+                            <div class="hero__feature">
+                                <span>Hívjon bizalommal: 06 20 228 9575</span>
+                            </div>
                         </div>
-                        <div class="credential">
-                            <strong>Tapasztalat:</strong> 15+ év
-                        </div>
-                        <div class="credential">
-                            <strong>Elkészített tanúsítványok:</strong> 10.000+
-                        </div>
-                        <div class="credential">
-                            <strong>Szolgáltatási terület:</strong> Győr-Moson-Sopron megye, Budapest és Pest megye
-                        </div>
+                        <a href="#kapcsolat" class="btn btn--primary btn--lg hero__cta">Ajánlatot Kérek</a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Section -->
-    <section id="szolgaltatasok" class="services section">
-        <div class="container">
-            <h2 class="section__title text-center">Szolgáltatások és Árak</h2>
-            <p class="section__subtitle text-center">Minden ár tartalmazza a kiszállást, helyszíni szemlét és a hitelesítést</p>
-            
-            <div class="services__grid">
-                <div class="service-card">
-                    <div class="service-card__header">
-                        <h3 class="service-card__title">Társasházi lakás</h3>
-                        <p class="service-card__subtitle">80 m² alatt</p>
+        <!-- Introduction Section -->
+        <section id="bemutatkozas" class="intro section">
+            <div class="container">
+                <div class="intro__content">
+                    <div class="intro__image">
+                        <div class="intro__avatar">
+                            <img src="images/profil-kép.jpg"
+                                 alt="Kiss Péter István profilkép"
+                                 class="intro__avatar-img">
+                        </div>
                     </div>
-                    <div class="service-card__price">
-                        <span class="service-card__amount">25.000</span>
-                        <span class="service-card__currency">Ft</span>
-                    </div>
-                    <div class="service-card__features">
-                        <ul class="service-card__list">
-                            <li>Teljes dokumentáció</li>
-                            <li>Helyszíni felmérés</li>
-                            <li>24-48 órás átfutás</li>
-                            <li>5 év érvényesség</li>
-                        </ul>
-                    </div>
-                </div>
+                    <div class="intro__text">
+                        <h2 class="section__title">Bemutatkozás</h2>
+                        <h3 class="intro__name">Kiss Péter István vagyok</h3>
+                        <p class="intro__title">Okleveles gépészmérnök, energetikai tanúsító</p>
 
-                <div class="service-card service-card--featured">
-                    <div class="service-card__badge">Leggyakoribb</div>
-                    <div class="service-card__header">
-                        <h3 class="service-card__title">Társasházi lakás</h3>
-                        <p class="service-card__subtitle">80-140 m²</p>
-                    </div>
-                    <div class="service-card__price">
-                        <span class="service-card__amount">27.000</span>
-                        <span class="service-card__currency">Ft</span>
-                    </div>
-                    <div class="service-card__features">
-                        <ul class="service-card__list">
-                            <li>Teljes dokumentáció</li>
-                            <li>Helyszíni felmérés</li>
-                            <li>24-48 órás átfutás</li>
-                            <li>5 év érvényesség</li>
-                        </ul>
-                    </div>
-                </div>
+                        <p class="intro__description">
+                            Több mint 15 éve foglalkozom energetikai tanúsítványok készítésével Budapest
+                            környékén és mostantól Győr környékén is. Eddigi munkám során 10.000+ tanúsítványt
+                            készítettem el, mindig a legmagasabb szakmai színvonalon és a határidőket pontosan
+                            betartva.
+                        </p>
 
-                <div class="service-card">
-                    <div class="service-card__header">
-                        <h3 class="service-card__title">Családi ház</h3>
-                        <p class="service-card__subtitle">150 m² alatt</p>
-                    </div>
-                    <div class="service-card__price">
-                        <span class="service-card__amount">30.000</span>
-                        <span class="service-card__currency">Ft</span>
-                    </div>
-                    <div class="service-card__features">
-                        <ul class="service-card__list">
-                            <li>Teljes dokumentáció</li>
-                            <li>Helyszíni felmérés</li>
-                            <li>48-72 órás átfutás</li>
-                            <li>5 év érvényesség</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-card__header">
-                        <h3 class="service-card__title">Családi ház</h3>
-                        <p class="service-card__subtitle">150 m² felett</p>
-                    </div>
-                    <div class="service-card__price">
-                        <span class="service-card__amount">Egyedi</span>
-                        <span class="service-card__currency">árazás</span>
-                    </div>
-                    <div class="service-card__features">
-                        <ul class="service-card__list">
-                            <li>Személyre szabott ajánlat</li>
-                            <li>Helyszíni felmérés</li>
-                            <li>Rugalmas határidő</li>
-                            <li>5 év érvényesség</li>
-                        </ul>
+                        <div class="intro__credentials">
+                            <div class="credential">
+                                <strong>TÉ jogosultsági szám:</strong> 01-20058, 01-64094
+                            </div>
+                            <div class="credential">
+                                <strong>Tapasztalat:</strong> 15+ év
+                            </div>
+                            <div class="credential">
+                                <strong>Elkészített tanúsítványok:</strong> 10.000+
+                            </div>
+                            <div class="credential">
+                                <strong>Szolgáltatási terület:</strong> Győr-Moson-Sopron megye, Budapest és Pest megye
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="services__info">
-                <h3>Mit tartalmaz a szolgáltatás?</h3>
-                <div class="services__info-grid">
-                    <div class="info-item">
-                        <span class="info-item__icon">📋</span>
-                        <h4>Energetikai tanúsítvány</h4>
-                        <p>Adás-vételhez és bérbeadáshoz egyaránt</p>
+        <!-- Services Section -->
+        <section id="szolgaltatasok" class="services section">
+            <div class="container">
+                <h2 class="section__title text-center">Szolgáltatások és Árak</h2>
+                <p class="section__subtitle text-center">
+                    Minden ár tartalmazza a kiszállást, helyszíni szemlét és a hitelesítést
+                </p>
+
+                <div class="services__grid">
+                    <div class="service-card">
+                        <div class="service-card__header">
+                            <h3 class="service-card__title">Társasházi lakás</h3>
+                            <p class="service-card__subtitle">80 m² alatt</p>
+                        </div>
+                        <div class="service-card__price">
+                            <span class="service-card__amount">25.000</span>
+                            <span class="service-card__currency">Ft</span>
+                        </div>
+                        <div class="service-card__features">
+                            <ul class="service-card__list">
+                                <li>Teljes dokumentáció</li>
+                                <li>Helyszíni felmérés</li>
+                                <li>24-48 órás átfutás</li>
+                                <li>5 év érvényesség</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-item__icon">🏠</span>
-                        <h4>Helyszíni felmérés</h4>
-                        <p>Pontos mérések és dokumentálás</p>
+
+                    <div class="service-card service-card--featured">
+                        <div class="service-card__badge">Leggyakoribb</div>
+                        <div class="service-card__header">
+                            <h3 class="service-card__title">Társasházi lakás</h3>
+                            <p class="service-card__subtitle">80-140 m²</p>
+                        </div>
+                        <div class="service-card__price">
+                            <span class="service-card__amount">27.000</span>
+                            <span class="service-card__currency">Ft</span>
+                        </div>
+                        <div class="service-card__features">
+                            <ul class="service-card__list">
+                                <li>Teljes dokumentáció</li>
+                                <li>Helyszíni felmérés</li>
+                                <li>24-48 órás átfutás</li>
+                                <li>5 év érvényesség</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="info-item">
-                        <span class="info-item__icon">✅</span>
-                        <h4>Hitelesítés</h4>
-                        <p>Hatósági elismerésre alkalmas</p>
+
+                    <div class="service-card">
+                        <div class="service-card__header">
+                            <h3 class="service-card__title">Családi ház</h3>
+                            <p class="service-card__subtitle">150 m² alatt</p>
+                        </div>
+                        <div class="service-card__price">
+                            <span class="service-card__amount">30.000</span>
+                            <span class="service-card__currency">Ft</span>
+                        </div>
+                        <div class="service-card__features">
+                            <ul class="service-card__list">
+                                <li>Teljes dokumentáció</li>
+                                <li>Helyszíni felmérés</li>
+                                <li>48-72 órás átfutás</li>
+                                <li>5 év érvényesség</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-card__header">
+                            <h3 class="service-card__title">Családi ház</h3>
+                            <p class="service-card__subtitle">150 m² felett</p>
+                        </div>
+                        <div class="service-card__price">
+                            <span class="service-card__amount">Egyedi</span>
+                            <span class="service-card__currency">árazás</span>
+                        </div>
+                        <div class="service-card__features">
+                            <ul class="service-card__list">
+                                <li>Személyre szabott ajánlat</li>
+                                <li>Helyszíni felmérés</li>
+                                <li>Rugalmas határidő</li>
+                                <li>5 év érvényesség</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services__info">
+                    <h3>Mit tartalmaz a szolgáltatás?</h3>
+                    <div class="services__info-grid">
+                        <div class="info-item">
+                            <span class="info-item__icon">📋</span>
+                            <h4>Energetikai tanúsítvány</h4>
+                            <p>Adás-vételhez és bérbeadáshoz egyaránt</p>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-item__icon">🏠</span>
+                            <h4>Helyszíni felmérés</h4>
+                            <p>Pontos mérések és dokumentálás</p>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-item__icon">✅</span>
+                            <h4>Hitelesítés</h4>
+                            <p>Hatósági elismerésre alkalmas</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Szolgáltatás folyamat flowchart szekció -->
-<section class="service-process">
-    <h2>Szolgáltatás folyamata</h2>
-    <div class="flowchart">
-        <div class="step">
-            <div class="step-circle">1</div>
-            <h3>Megkeresés</h3>
-            <p>Az ügyféli igények felvétele, részletek egyeztetése.</p>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step">
-            <div class="step-circle">2</div>
-            <h3>Helyszíni felmérés</h3>
-            <p>Szakértői kiutazás, adatgyűjtés a helyszínen.</p>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step">
-            <div class="step-circle">3</div>
-            <h3>Tanúsítvány elkészítés és hitelesítése</h3>
-            <p>Dokumentum elkészítése és hivatalos hitelesítése.</p>
-        </div>
-        <div class="step-arrow">→</div>
-        <div class="step">
-            <div class="step-circle">4</div>
-            <h3>Tanúsítvány feltöltés és kiküldés</h3>
-            <p>Digitális vagy postai kézbesítés.</p>
+        <!-- Szolgáltatás folyamat szekció -->
+        <section class="service-process">
+    <div class="container">
+        <h2>Hogyan zajlik a tanúsítás?</h2>
+        <p class="service-process__intro">
+            Az első telefonhívástól számítva néhány napon belül kész a hiteles energetikai tanúsítvány.
+        </p>
+        <div class="flowchart">
+            <div class="step">
+                <div class="step-circle">1</div>
+                <h3>Megkeresés</h3>
+                <p>Telefonon vagy emailben felveszi velem a kapcsolatot, egyeztetjük az ingatlan adatait.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-circle">2</div>
+                <h3>Időpont egyeztetés</h3>
+                <p>Közösen kiválasztjuk a megfelelő időpontot a helyszíni felmérésre.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-circle">3</div>
+                <h3>Helyszíni felmérés</h3>
+                <p>A helyszínen felmérem az ingatlant, rögzítem a szükséges műszaki adatokat.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-circle">4</div>
+                <h3>Tanúsítvány elkészítése</h3>
+                <p>Elkészítem és hitelesítem az energetikai tanúsítványt, majd emailben megküldöm Önnek.</p>
+            </div>
         </div>
     </div>
 </section>
 
 
-    <!-- Referencia szekció -->
-<section id="referenciak" class="referenciak section">
-  <div class="container">
-    <h2 class="section__title">Referencia munkák</h2>
-    <div class="galeria-wrapper">
-      <div class="galeria">
-        <!-- Ide töltsd fel a képeidet, tetszőleges számban -->
-        <img src="images/referencia1.jpg" alt="Referencia 1" class="galeria__img">
-        <img src="images/referencia2.jpg" alt="Referencia 2" class="galeria__img">
-        <img src="images/referencia3.jpg" alt="Referencia 3" class="galeria__img">
-        <img src="images/referencia4.jpg" alt="Referencia 4" class="galeria__img">
-        <img src="images/referencia5.jpg" alt="Referencia 5" class="galeria__img">
-        <img src="images/referencia6.jpg" alt="Referencia 6" class="galeria__img">
-        <img src="images/referencia7.jpg" alt="Referencia 7" class="galeria__img">
-        <img src="images/referencia8.jpg" alt="Referencia 8" class="galeria__img">
-        <img src="images/referencia9.jpg" alt="Referencia 9" class="galeria__img">
-        <img src="images/referencia10.jpg" alt="Referencia 10" class="galeria__img">
-        <img src="images/referencia11.jpg" alt="Referencia 11" class="galeria__img">
-        <img src="images/referencia12.jpg" alt="Referencia 12" class="galeria__img">
-        <img src="images/referencia13.jpg" alt="Referencia 13" class="galeria__img">
-        <img src="images/referencia14.jpg" alt="Referencia 14" class="galeria__img">
-        <img src="images/referencia15.jpg" alt="Referencia 15" class="galeria__img">
-        
-      
-        <!-- Duplázd a képeket a végtelen animációhoz -->
-        <img src="images/referencia1.jpg" alt="Referencia 1" class="galeria__img">
-        <img src="images/referencia2.jpg" alt="Referencia 2" class="galeria__img">
-        <img src="images/referencia3.jpg" alt="Referencia 3" class="galeria__img">
-        <img src="images/referencia4.jpg" alt="Referencia 4" class="galeria__img">
-        <img src="images/referencia5.jpg" alt="Referencia 5" class="galeria__img">
-        <img src="images/referencia6.jpg" alt="Referencia 6" class="galeria__img">
-        <img src="images/referencia7.jpg" alt="Referencia 7" class="galeria__img">
-        <img src="images/referencia8.jpg" alt="Referencia 8" class="galeria__img">
-        <img src="images/referencia9.jpg" alt="Referencia 9" class="galeria__img">
-        <img src="images/referencia10.jpg" alt="Referencia 10" class="galeria__img">
-        <img src="images/referencia11.jpg" alt="Referencia 11" class="galeria__img">
-        <img src="images/referencia12.jpg" alt="Referencia 12" class="galeria__img">
-        <img src="images/referencia13.jpg" alt="Referencia 13" class="galeria__img">
-        <img src="images/referencia14.jpg" alt="Referencia 14" class="galeria__img">
-        <img src="images/referencia15.jpg" alt="Referencia 15" class="galeria__img">
-        
-    </div>
-  </div>
-</section>
+        <!-- Referencia szekció -->
+        <section id="referenciak" class="referenciak section">
+            <div class="container">
+                <h2 class="section__title">Referencia munkák</h2>
+                <div class="galeria-wrapper">
+                    <div class="galeria">
+                        <img src="images/referencia1.jpg" alt="Referencia 1" class="galeria__img">
+                        <img src="images/referencia2.jpg" alt="Referencia 2" class="galeria__img">
+                        <img src="images/referencia3.jpg" alt="Referencia 3" class="galeria__img">
+                        <img src="images/referencia4.jpg" alt="Referencia 4" class="galeria__img">
+                        <img src="images/referencia5.jpg" alt="Referencia 5" class="galeria__img">
+                        <img src="images/referencia6.jpg" alt="Referencia 6" class="galeria__img">
+                        <img src="images/referencia7.jpg" alt="Referencia 7" class="galeria__img">
+                        <img src="images/referencia8.jpg" alt="Referencia 8" class="galeria__img">
+                        <img src="images/referencia9.jpg" alt="Referencia 9" class="galeria__img">
+                        <img src="images/referencia10.jpg" alt="Referencia 10" class="galeria__img">
+                        <img src="images/referencia11.jpg" alt="Referencia 11" class="galeria__img">
+                        <img src="images/referencia12.jpg" alt="Referencia 12" class="galeria__img">
+                        <img src="images/referencia13.jpg" alt="Referencia 13" class="galeria__img">
+                        <img src="images/referencia14.jpg" alt="Referencia 14" class="galeria__img">
+                        <img src="images/referencia15.jpg" alt="Referencia 15" class="galeria__img">
 
-    <!-- Contact Section -->
-    <section id="kapcsolat" class="contact section">
-        <div class="container">
-            <h2 class="section__title text-center">Kapcsolat</h2>
-            <p class="section__subtitle text-center">Kérjen ajánlatot vagy egyeztessen időpontot</p>
-            
-            <div class="contact__content">
-                <div class="contact__info">
-                    <h3>Elérhetőségek</h3>
-                    <div class="contact__item">
-                        <span class="contact__icon">📞</span>
-                        <div>
-                            <strong>Telefon:</strong>
-                            <a href="tel:+36201234567">+36 20 228 9575</a>
-                        </div>
-                    </div>
-                    <div class="contact__item">
-                        <span class="contact__icon">✉️</span>
-                        <div>
-                            <strong>Email:</strong>
-                            <a href="mailto:energetikaitanusito1@gmail.com">energetikaitanusito1@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact__item">
-                        <span class="contact__icon">📍</span>
-                        <div>
-                            <strong>Szolgáltatási terület:</strong>
-                            <span>Győr-Moson-Sopron megye, Budapest és Pest megye</span>
-                        </div>
-                    </div>
-                    <div class="contact__item">
-                        <span class="contact__icon">🕒</span>
-                        <div>
-                            <strong>Nyitvatartás:</strong>
-                            <span>Hétfő-Péntek 8:00-18:00</span>
-                        </div>
-                    </div>
-                    <div class="contact__item">
-                        <span class="contact__icon">🏠︎</span>
-                        <div>
-                            <strong>Székhely:</strong>
-                            <span>Győr</span>
-                        </div>
+                        <!-- Duplikált képek a végtelen animációhoz -->
+                        <img src="images/referencia1.jpg" alt="Referencia 1" class="galeria__img">
+                        <img src="images/referencia2.jpg" alt="Referencia 2" class="galeria__img">
+                        <img src="images/referencia3.jpg" alt="Referencia 3" class="galeria__img">
+                        <img src="images/referencia4.jpg" alt="Referencia 4" class="galeria__img">
+                        <img src="images/referencia5.jpg" alt="Referencia 5" class="galeria__img">
+                        <img src="images/referencia6.jpg" alt="Referencia 6" class="galeria__img">
+                        <img src="images/referencia7.jpg" alt="Referencia 7" class="galeria__img">
+                        <img src="images/referencia8.jpg" alt="Referencia 8" class="galeria__img">
+                        <img src="images/referencia9.jpg" alt="Referencia 9" class="galeria__img">
+                        <img src="images/referencia10.jpg" alt="Referencia 10" class="galeria__img">
+                        <img src="images/referencia11.jpg" alt="Referencia 11" class="galeria__img">
+                        <img src="images/referencia12.jpg" alt="Referencia 12" class="galeria__img">
+                        <img src="images/referencia13.jpg" alt="Referencia 13" class="galeria__img">
+                        <img src="images/referencia14.jpg" alt="Referencia 14" class="galeria__img">
+                        <img src="images/referencia15.jpg" alt="Referencia 15" class="galeria__img">
                     </div>
                 </div>
-                    <form action="https://formsubmit.co/energetikaitanusito1@gmail.com" method="POST">
-                        
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="kapcsolat" class="contact section">
+            <div class="container">
+                <h2 class="section__title text-center">Kapcsolat</h2>
+                <p class="section__subtitle text-center">Kérjen ajánlatot vagy egyeztessen időpontot</p>
+
+                <div class="contact__content">
+                    <div class="contact__info">
+                        <h3>Elérhetőségek</h3>
+                        <div class="contact__item">
+                            <span class="contact__icon">📞</span>
+                            <div>
+                                <strong>Telefon:</strong>
+                                <a href="tel:+36202289575">+36 20 228 9575</a>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <span class="contact__icon">✉️</span>
+                            <div>
+                                <strong>Email:</strong>
+                                <a href="mailto:energetikaitanusito1@gmail.com">energetikaitanusito1@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <span class="contact__icon">📍</span>
+                            <div>
+                                <strong>Szolgáltatási terület:</strong>
+                                <span>Győr-Moson-Sopron megye, Budapest és Pest megye</span>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <span class="contact__icon">🕒</span>
+                            <div>
+                                <strong>Nyitvatartás:</strong>
+                                <span>Hétfő-Péntek 8:00-18:00</span>
+                            </div>
+                        </div>
+                        <div class="contact__item">
+                            <span class="contact__icon">🏠︎</span>
+                            <div>
+                                <strong>Székhely:</strong>
+                                <span>Győr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="contactForm"
+                          class="contact__form"
+                          action="https://formsubmit.co/energetikaitanusito1@gmail.com"
+                          method="POST">
+
                         <input type="hidden" name="_captcha" value="true">
                         <input type="hidden" name="_next" value="https://energetikaitanusito1.hu/koszonjuk">
                         <input type="hidden" name="_subject" value="Új megkeresés - Energetikai tanúsítvány">
-                        
-                        <input type="hidden" name="_blacklist" value="viagra, casino, crypto, bitcoin, seo, backlink, loan, porn, free money, click here, buy now, investment offer, make money">
-                        
+
+                        <input type="hidden" name="_blacklist"
+                               value="viagra, casino, crypto, bitcoin, seo, backlink, loan, porn, free money, click here, buy now, investment offer, make money">
+
                         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                        
+
                         <div class="form-group">
                             <label for="name" class="form-label">Név *</label>
                             <input type="text" id="name" name="name" class="form-control" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email" class="form-label">Email cím *</label>
                             <input type="email" id="email" name="email" class="form-control" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone" class="form-label">Telefonszám</label>
                             <input type="tel" id="phone" name="phone" class="form-control">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="propertyType" class="form-label">Ingatlan típusa</label>
                             <select id="propertyType" name="propertyType" class="form-control">
@@ -378,22 +393,24 @@
                                 <option value="Egyéb">Egyéb</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="propertySize" class="form-label">Ingatlan mérete (m²)</label>
-                            <input type="number" id="propertySize" name="propertySize" class="form-control" min="1">
+                            <input type="number" id="propertySize" name="propertySize" class="form-control" min="10" step="1">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message" class="form-label">Üzenet/Kérés</label>
-                            <textarea id="message" name="message" class="form-control" rows="4" placeholder="Írja le kérését, kérdését..."></textarea>
+                            <textarea id="message" name="message" class="form-control" rows="4"
+                                      placeholder="Írja le kérését, kérdését..."></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn btn--primary btn--full-width">Üzenet Küldése</button>
                     </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" title="Vissza a tetejére">
@@ -403,8 +420,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Kiss Péter István EV - Energetikai Tanúsító. Minden jog fenntartva.
-            A weboldalt készítette és üzemelteti Kiss Zoltán EV</p>
+            <p>
+                &copy; 2025 Kiss Péter István EV - Energetikai Tanúsító. Minden jog fenntartva.
+                A weboldalt készítette és üzemelteti Kiss Zoltán EV
+            </p>
         </div>
     </footer>
 
