@@ -428,5 +428,51 @@
     </footer>
 
     <script src="app.js"></script>
+
+    <div id="cookieBanner" class="cookie-banner" role="dialog" aria-label="Süti beállítások">
+      <div class="cookie-banner__inner">
+        <div class="cookie-banner__text">
+          <strong>🍪 Sütik használata</strong>
+          <p>
+            Ez a weboldal Google Analytics sütiket használ a látogatói statisztikák elemzéséhez.
+            A sütik elfogadásával hozzájárul az adatgyűjtéshez.
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Tudjon meg többet</a>.
+          </p>
+        </div>
+        <div class="cookie-banner__actions">
+          <button id="cookieAccept" class="btn btn--primary btn--sm">Elfogadom</button>
+          <button id="cookieDecline" class="btn btn--outline btn--sm">Elutasítom</button>
+        </div>
+      </div>
+    </div>
+    
+    <script>
+      (function () {
+        var banner = document.getElementById('cookieBanner');
+        var consent = localStorage.getItem('cookieConsent');
+    
+        // Ha már döntött, ne mutasd
+        if (consent) return;
+    
+        // Kis késleltetéssel jelenik meg
+        setTimeout(function () {
+          banner.classList.add('cookie-banner--visible');
+        }, 800);
+    
+        document.getElementById('cookieAccept').addEventListener('click', function () {
+          localStorage.setItem('cookieConsent', 'accepted');
+          banner.classList.remove('cookie-banner--visible');
+        });
+    
+        document.getElementById('cookieDecline').addEventListener('click', function () {
+          localStorage.setItem('cookieConsent', 'declined');
+          banner.classList.remove('cookie-banner--visible');
+          // Ha elutasítja, letiltjuk a Google Analytics-t
+          window['ga-disable-G-7ZFNBBCRRQ'] = true;
+        });
+      })();
+    </script>
+
+    
 </body>
 </html>
