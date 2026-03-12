@@ -37,18 +37,6 @@ function initNavigation() {
             navMenu.classList.remove('active');
         }
     });
-
-    // Header background on scroll
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(255, 255, 255, 0.98)';
-            header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.background = 'rgba(255, 255, 255, 0.95)';
-            header.style.boxShadow = 'none';
-        }
-    });
 }
 
 // Smooth scrolling for anchor links
@@ -416,7 +404,6 @@ function initAdditionalFeatures() {
     const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
     phoneLinks.forEach(link => {
         link.addEventListener('click', function() {
-            // Track phone click (could be used for analytics)
             console.log('Phone number clicked:', this.href);
         });
     });
@@ -458,18 +445,20 @@ window.addEventListener('load', function() {
         // Remove success parameter from URL
         window.history.replaceState({}, document.title, window.location.pathname);
     }
+});
+
 // Fejléc scroll effekt
 (function () {
-  var header = document.querySelector('.header');
-  var threshold = 60;
+    var header = document.querySelector('.header');
+    var threshold = 60;
 
-  function onScroll() {
-    if (window.scrollY > threshold) {
-      header.classList.add('header--scrolled');
-    } else {
-      header.classList.remove('header--scrolled');
+    function onScroll() {
+        if (window.scrollY > threshold) {
+            header.classList.add('header--scrolled');
+        } else {
+            header.classList.remove('header--scrolled');
+        }
     }
-  }
 
-  window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
 })();
