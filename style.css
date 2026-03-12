@@ -75,6 +75,15 @@ html {
 body { margin: 0; padding: 0; font-family: "Inter", var(--font-family-base); line-height: var(--line-height-normal); color: var(--color-text); background-color: var(--color-background); }
 *, *::before, *::after { box-sizing: inherit; }
 
+/* ===== RESIZE: ÁTMENETEK KIKAPCSOLÁSA ===== */
+/* JS hozzáadja ideiglenesen ablak-átméretezéskor */
+.no-transition *,
+.no-transition *::before,
+.no-transition *::after {
+  transition: none !important;
+  animation-duration: 0.01ms !important;
+}
+
 h1,h2,h3,h4,h5,h6 { margin: 0; font-weight: var(--font-weight-semibold); line-height: var(--line-height-tight); color: var(--color-text); letter-spacing: var(--letter-spacing-tight); }
 h1 { font-size: var(--font-size-4xl); }
 h2 { font-size: var(--font-size-3xl); }
@@ -220,10 +229,8 @@ select.form-control { padding: var(--space-8) var(--space-12); -webkit-appearanc
 .nav__toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px,-6px); }
 
 /* ===== MOBIL MENÜ ===== */
-/* Pozíciót JS állítja be dinamikusan, itt csak az alap stílus */
 .nav__menu--mobile-dropdown {
   position: fixed;
-  /* top / left / right / border-radius: JS állítja */
   background: #ffffff;
   border: 1px solid rgba(39,165,56,0.22);
   box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
@@ -267,10 +274,8 @@ select.form-control { padding: var(--space-8) var(--space-12); -webkit-appearanc
 .nav__menu--mobile-dropdown .nav__link::after {
   content: "";
   position: absolute;
-  bottom: 7px;
-  left: 24px;
-  width: 0;
-  height: 2px;
+  bottom: 7px; left: 24px;
+  width: 0; height: 2px;
   background: var(--color-primary);
   border-radius: 2px;
   transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
@@ -395,7 +400,6 @@ select.form-control { padding: var(--space-8) var(--space-12); -webkit-appearanc
 
 @media (max-width: 768px) {
   .nav__toggle { display: flex; }
-  /* Desktop menü elrejtése mobilon */
   .nav__menu:not(.nav__menu--mobile-dropdown) { display: none; }
   .hero { padding-top: 88px; min-height: auto; }
   .hero__content { flex-direction: column; align-items: flex-start; gap: 24px; }
