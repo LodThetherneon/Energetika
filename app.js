@@ -458,4 +458,18 @@ window.addEventListener('load', function() {
         // Remove success parameter from URL
         window.history.replaceState({}, document.title, window.location.pathname);
     }
-});
+// Fejléc scroll effekt
+(function () {
+  var header = document.querySelector('.header');
+  var threshold = 60;
+
+  function onScroll() {
+    if (window.scrollY > threshold) {
+      header.classList.add('header--scrolled');
+    } else {
+      header.classList.remove('header--scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
