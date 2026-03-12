@@ -44,16 +44,16 @@ function initNavigation() {
     }
     applyMobileClass();
 
-    // Resize: disable transitions briefly so header + menu move instantly together
+    // Resize: csak a végén igazítjuk a menüt, hogy az animáció ne akadjon
     let resizeTimer;
     window.addEventListener('resize', function() {
-        document.body.classList.add('no-transition');
         applyMobileClass();
-        scheduleAlign();
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {
-            document.body.classList.remove('no-transition');
-        }, 150);
+            if (navMenu.classList.contains('active')) {
+                scheduleAlign();
+            }
+        }, 120);
     }, { passive: true });
 
     // Scroll: csak ha nyitva van
