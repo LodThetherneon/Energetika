@@ -1,7 +1,6 @@
 // Energy Certification Website JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
     initNavigation();
     initScrollAnimations();
     initBackToTop();
@@ -12,16 +11,47 @@ document.addEventListener('DOMContentLoaded', function() {
 // Navigation functionality
 function initNavigation() {
     const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    const navLinks = document.querySelectorAll('.nav__link');
+    const navMenu   = document.getElementById('navMenu');
+    const navLinks  = document.querySelectorAll('.nav__link');
+    const header    = document.querySelector('.header');
 
-    // Mobile menu toggle
+    // Mobil: add dropdown class
+    function applyMobileClass() {
+        if (window.innerWidth <= 768) {
+            navMenu.classList.add('nav__menu--mobile-dropdown');
+        } else {
+            navMenu.classList.remove('nav__menu--mobile-dropdown', 'active');
+            navToggle.classList.remove('active');
+        }
+    }
+    applyMobileClass();
+    window.addEventListener('resize', applyMobileClass);
+
+    // Igazítja a menü pozícióját a fejléchez
+    function alignMenuToHeader() {
+        if (window.innerWidth > 768) return;
+        const rect = header.getBoundingClientRect();
+        navMenu.style.top    = (rect.bottom + 8) + 'px';
+        navMenu.style.left   = rect.left + 'px';
+        navMenu.style.right  = (window.innerWidth - rect.right) + 'px';
+        navMenu.style.width  = 'auto';
+        // Lekerekítés: scrolled állapotban kerekített
+        const br = window.getComputedStyle(header).borderRadius;
+        navMenu.style.borderRadius = (br && br !== '0px') ? br : '12px';
+    }
+
     navToggle.addEventListener('click', function() {
+        const isOpen = navMenu.classList.contains('active');
+        if (!isOpen) alignMenuToHeader();
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
 
-    // Close mobile menu when clicking on a link
+    // Frissíti pozíciót görgetéskor (ha nyitva van)
+    window.addEventListener('scroll', function() {
+        if (navMenu.classList.contains('active')) alignMenuToHeader();
+    }, { passive: true });
+
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             navToggle.classList.remove('active');
@@ -29,436 +59,201 @@ function initNavigation() {
         });
     });
 
-    // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        const isClickInsideNav = navToggle.contains(event.target) || navMenu.contains(event.target);
-        if (!isClickInsideNav && navMenu.classList.contains('active')) {
+        const isInside = navToggle.contains(event.target) || navMenu.contains(event.target);
+        if (!isInside && navMenu.classList.contains('active')) {
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
         }
     });
 }
 
-// Smooth scrolling for anchor links
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
     links.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
-            
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
             if (targetSection) {
                 const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: targetSection.offsetTop - headerHeight, behavior: 'smooth' });
             }
         });
     });
 }
 
-// Back to top button functionality
 function initBackToTop() {
-    const backToTopButton = document.getElementById('backToTop');
-    
+    const btn = document.getElementById('backToTop');
     window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
+        btn.classList.toggle('show', window.pageYOffset > 300);
     });
-    
-    backToTopButton.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+    btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
-// Scroll animations
 function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-            }
+            if (entry.isIntersecting) entry.target.classList.add('animate-in');
         });
     }, observerOptions);
-    
-    // Observe elements that should animate on scroll
-    const animateElements = document.querySelectorAll('.service-card, .intro__content, .contact__content, .info-item');
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
-    
-    // Add CSS for animation states
+    document.querySelectorAll('.service-card, .intro__content, .contact__content, .info-item').forEach(el => observer.observe(el));
     const style = document.createElement('style');
     style.textContent = `
-        .service-card,
-        .intro__content,
-        .contact__content,
-        .info-item {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
+        .service-card,.intro__content,.contact__content,.info-item {
+            opacity:0;transform:translateY(30px);transition:all 0.6s ease-out;
         }
-        
-        .animate-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-        
-        .service-card:nth-child(1).animate-in { transition-delay: 0.1s; }
-        .service-card:nth-child(2).animate-in { transition-delay: 0.2s; }
-        .service-card:nth-child(3).animate-in { transition-delay: 0.3s; }
-        .service-card:nth-child(4).animate-in { transition-delay: 0.4s; }
+        .animate-in{opacity:1!important;transform:translateY(0)!important;}
+        .service-card:nth-child(1).animate-in{transition-delay:0.1s;}
+        .service-card:nth-child(2).animate-in{transition-delay:0.2s;}
+        .service-card:nth-child(3).animate-in{transition-delay:0.3s;}
+        .service-card:nth-child(4).animate-in{transition-delay:0.4s;}
     `;
     document.head.appendChild(style);
 }
 
-// Form validation and handling
 function initFormValidation() {
-    const form = document.getElementById('contactForm');
-    const nameField = document.getElementById('name');
-    const emailField = document.getElementById('email');
-    const phoneField = document.getElementById('phone');
+    const form              = document.getElementById('contactForm');
+    const nameField         = document.getElementById('name');
+    const emailField        = document.getElementById('email');
+    const phoneField        = document.getElementById('phone');
     const propertyTypeField = document.getElementById('propertyType');
     const propertySizeField = document.getElementById('propertySize');
-    
-    // Real-time validation
-    nameField.addEventListener('blur', function() {
-        validateName(this);
-    });
-    
-    emailField.addEventListener('blur', function() {
-        validateEmail(this);
-    });
-    
-    phoneField.addEventListener('blur', function() {
-        validatePhone(this);
-    });
-    
-    propertySizeField.addEventListener('blur', function() {
-        validatePropertySize(this);
-    });
-    
-    // Form submission
+
+    nameField.addEventListener('blur',         () => validateName(nameField));
+    emailField.addEventListener('blur',        () => validateEmail(emailField));
+    phoneField.addEventListener('blur',        () => validatePhone(phoneField));
+    propertySizeField.addEventListener('blur', () => validatePropertySize(propertySizeField));
+
     form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Validate all fields
-        const isNameValid = validateName(nameField);
-        const isEmailValid = validateEmail(emailField);
-        const isPhoneValid = validatePhone(phoneField);
-        const isPropertySizeValid = validatePropertySize(propertySizeField);
-        
-        if (isNameValid && isEmailValid && isPhoneValid && isPropertySizeValid) {
-            // Show loading state
+        const ok = validateName(nameField) & validateEmail(emailField) & validatePhone(phoneField) & validatePropertySize(propertySizeField);
+        if (ok) {
             const submitButton = form.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
             submitButton.textContent = 'Küldés...';
             submitButton.disabled = true;
-            
-            // Generate estimated price based on property details
-            const estimatedPrice = calculateEstimatedPrice();
-            if (estimatedPrice) {
-                const hiddenInput = document.createElement('input');
-                hiddenInput.type = 'hidden';
-                hiddenInput.name = 'estimated_price';
-                hiddenInput.value = estimatedPrice;
-                form.appendChild(hiddenInput);
+            const ep = calculateEstimatedPrice();
+            if (ep) {
+                const h = document.createElement('input');
+                h.type = 'hidden'; h.name = 'estimated_price'; h.value = ep;
+                form.appendChild(h);
             }
-            
-            // Submit the form
-            setTimeout(() => {
-                form.submit();
-            }, 500);
+            setTimeout(() => form.submit(), 500);
         } else {
             showMessage('Kérjük, javítsa ki a hibákat a form elküldése előtt.', 'error');
         }
     });
-    
-    // Auto-complete property size suggestion
+
     propertyTypeField.addEventListener('change', function() {
-        const propertyType = this.value;
-        const sizeField = propertySizeField;
-        
-        if (propertyType === 'Társasházi lakás') {
-            sizeField.placeholder = 'pl. 65 m²';
-        } else if (propertyType === 'Családi ház') {
-            sizeField.placeholder = 'pl. 120 m²';
-        } else {
-            sizeField.placeholder = 'Ingatlan mérete m²-ben';
-        }
+        const t = this.value;
+        propertySizeField.placeholder = t === 'Társasházi lakás' ? 'pl. 65 m²' : t === 'Családi ház' ? 'pl. 120 m²' : 'Ingatlan mérete m²-ben';
+        updatePriceEstimation();
     });
-    
-    // Price estimation display
-    function updatePriceEstimation() {
-        const propertyType = propertyTypeField.value;
-        const propertySize = parseInt(propertySizeField.value);
-        
-        if (propertyType && propertySize && propertySize > 0) {
-            const estimation = calculateEstimatedPrice();
-            if (estimation) {
-                showPriceEstimation(estimation);
-            }
-        }
-    }
-    
-    propertyTypeField.addEventListener('change', updatePriceEstimation);
     propertySizeField.addEventListener('input', debounce(updatePriceEstimation, 500));
+
+    function updatePriceEstimation() {
+        const t = propertyTypeField.value;
+        const s = parseInt(propertySizeField.value);
+        if (t && s && s > 0) { const e = calculateEstimatedPrice(); if (e) showPriceEstimation(e); }
+    }
 }
 
-// Validation functions
 function validateName(field) {
-    const value = field.value.trim();
-    if (value.length < 2) {
-        showFieldError(field, 'A név legalább 2 karakter hosszú legyen.');
-        return false;
-    }
-    clearFieldError(field);
-    return true;
+    if (field.value.trim().length < 2) { showFieldError(field, 'A név legalább 2 karakter hosszú legyen.'); return false; }
+    clearFieldError(field); return true;
 }
-
 function validateEmail(field) {
-    const value = field.value.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(value)) {
-        showFieldError(field, 'Kérjük, adjon meg egy érvényes email címet.');
-        return false;
-    }
-    clearFieldError(field);
-    return true;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())) { showFieldError(field, 'Kérjük, adjon meg egy érvényes email címet.'); return false; }
+    clearFieldError(field); return true;
 }
-
 function validatePhone(field) {
-    const value = field.value.trim();
-    if (value && value.length > 0) {
-        const phoneRegex = /^[\+]?[\d\s\-\(\)]{8,}$/;
-        if (!phoneRegex.test(value)) {
-            showFieldError(field, 'Kérjük, adjon meg egy érvényes telefonszámot.');
-            return false;
-        }
-    }
-    clearFieldError(field);
-    return true;
+    if (field.value.trim() && !/^[\+]?[\d\s\-\(\)]{8,}$/.test(field.value.trim())) { showFieldError(field, 'Kérjük, adjon meg egy érvényes telefonszámot.'); return false; }
+    clearFieldError(field); return true;
 }
-
 function validatePropertySize(field) {
-    const value = parseInt(field.value);
-    if (field.value && (isNaN(value) || value < 1 || value > 2000)) {
-        showFieldError(field, 'Az ingatlan mérete 1 és 2000 m² között legyen.');
-        return false;
-    }
-    clearFieldError(field);
-    return true;
+    const v = parseInt(field.value);
+    if (field.value && (isNaN(v) || v < 1 || v > 2000)) { showFieldError(field, 'Az ingatlan mérete 1 és 2000 m² között legyen.'); return false; }
+    clearFieldError(field); return true;
 }
 
-// Error handling functions
 function showFieldError(field, message) {
     clearFieldError(field);
-    
     field.classList.add('error');
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'field-error';
-    errorDiv.textContent = message;
-    errorDiv.style.color = 'var(--color-error)';
-    errorDiv.style.fontSize = 'var(--font-size-sm)';
-    errorDiv.style.marginTop = 'var(--space-4)';
-    
-    field.parentNode.appendChild(errorDiv);
+    const d = document.createElement('div');
+    d.className = 'field-error';
+    d.textContent = message;
+    d.style.cssText = 'color:var(--color-error);font-size:var(--font-size-sm);margin-top:var(--space-4)';
+    field.parentNode.appendChild(d);
 }
-
 function clearFieldError(field) {
     field.classList.remove('error');
-    const existingError = field.parentNode.querySelector('.field-error');
-    if (existingError) {
-        existingError.remove();
-    }
+    const e = field.parentNode.querySelector('.field-error');
+    if (e) e.remove();
 }
-
 function showMessage(message, type) {
-    // Remove existing messages
-    const existingMessage = document.querySelector('.form-message');
-    if (existingMessage) {
-        existingMessage.remove();
-    }
-    
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `form-message ${type}`;
-    messageDiv.textContent = message;
-    messageDiv.style.padding = 'var(--space-12)';
-    messageDiv.style.borderRadius = 'var(--radius-base)';
-    messageDiv.style.marginBottom = 'var(--space-16)';
-    messageDiv.style.fontWeight = 'var(--font-weight-medium)';
-    
-    if (type === 'error') {
-        messageDiv.style.backgroundColor = 'rgba(var(--color-error-rgb), 0.1)';
-        messageDiv.style.color = 'var(--color-error)';
-        messageDiv.style.border = '1px solid rgba(var(--color-error-rgb), 0.3)';
-    } else if (type === 'success') {
-        messageDiv.style.backgroundColor = 'rgba(var(--color-success-rgb), 0.1)';
-        messageDiv.style.color = 'var(--color-success)';
-        messageDiv.style.border = '1px solid rgba(var(--color-success-rgb), 0.3)';
-    }
-    
+    const ex = document.querySelector('.form-message');
+    if (ex) ex.remove();
+    const d = document.createElement('div');
+    d.className = 'form-message ' + type;
+    d.textContent = message;
+    d.style.cssText = 'padding:var(--space-12);border-radius:var(--radius-base);margin-bottom:var(--space-16);font-weight:var(--font-weight-medium);';
+    if (type === 'error')   d.style.cssText += 'background:rgba(var(--color-error-rgb),0.1);color:var(--color-error);border:1px solid rgba(var(--color-error-rgb),0.3)';
+    if (type === 'success') d.style.cssText += 'background:rgba(var(--color-success-rgb),0.1);color:var(--color-success);border:1px solid rgba(var(--color-success-rgb),0.3)';
     const form = document.getElementById('contactForm');
-    form.insertBefore(messageDiv, form.firstChild);
-    
-    // Auto-remove after 5 seconds
-    setTimeout(() => {
-        if (messageDiv.parentNode) {
-            messageDiv.remove();
-        }
-    }, 5000);
+    form.insertBefore(d, form.firstChild);
+    setTimeout(() => { if (d.parentNode) d.remove(); }, 5000);
 }
 
-// Price calculation
 function calculateEstimatedPrice() {
-    const propertyType = document.getElementById('propertyType').value;
-    const propertySize = parseInt(document.getElementById('propertySize').value);
-    
-    if (!propertyType || !propertySize || propertySize <= 0) {
-        return null;
-    }
-    
-    let price = '';
-    
-    if (propertyType === 'Társasházi lakás') {
-        if (propertySize < 80) {
-            price = '25.000 Ft';
-        } else if (propertySize <= 140) {
-            price = '27.000 Ft';
-        } else {
-            price = '30.000+ Ft';
-        }
-    } else if (propertyType === 'Családi ház') {
-        if (propertySize < 150) {
-            price = '30.000 Ft';
-        } else {
-            price = 'Egyedi árazás';
-        }
-    } else {
-        price = 'Egyedi árazás';
-    }
-    
-    return price;
+    const t = document.getElementById('propertyType').value;
+    const s = parseInt(document.getElementById('propertySize').value);
+    if (!t || !s || s <= 0) return null;
+    if (t === 'Társasházi lakás') return s < 80 ? '25.000 Ft' : s <= 140 ? '27.000 Ft' : '30.000+ Ft';
+    if (t === 'Családi ház')     return s < 150 ? '30.000 Ft' : 'Egyedi árazás';
+    return 'Egyedi árazás';
 }
-
 function showPriceEstimation(price) {
-    // Remove existing estimation
-    const existingEstimation = document.querySelector('.price-estimation');
-    if (existingEstimation) {
-        existingEstimation.remove();
-    }
-    
-    const estimationDiv = document.createElement('div');
-    estimationDiv.className = 'price-estimation';
-    estimationDiv.innerHTML = `
-        <div style="
-            background-color: rgba(var(--color-success-rgb), 0.1);
-            border: 1px solid rgba(var(--color-success-rgb), 0.3);
-            border-radius: var(--radius-base);
-            padding: var(--space-12);
-            margin-top: var(--space-12);
-            color: var(--color-success);
-            font-weight: var(--font-weight-medium);
-        ">
-            💡 Becsült ár: <strong>${price}</strong>
-        </div>
-    `;
-    
-    const messageField = document.getElementById('message');
-    messageField.parentNode.appendChild(estimationDiv);
+    const ex = document.querySelector('.price-estimation');
+    if (ex) ex.remove();
+    const d = document.createElement('div');
+    d.className = 'price-estimation';
+    d.innerHTML = `<div style="background:rgba(var(--color-success-rgb),0.1);border:1px solid rgba(var(--color-success-rgb),0.3);border-radius:var(--radius-base);padding:var(--space-12);margin-top:var(--space-12);color:var(--color-success);font-weight:var(--font-weight-medium);">💡 Becsült ár: <strong>${price}</strong></div>`;
+    document.getElementById('message').parentNode.appendChild(d);
 }
 
-// Utility functions
 function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+    let t;
+    return function(...args) { clearTimeout(t); t = setTimeout(() => func(...args), wait); };
 }
 
-// Additional interactive features
-function initAdditionalFeatures() {
-    // Add click-to-call functionality
-    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
-    phoneLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            console.log('Phone number clicked:', this.href);
-        });
-    });
-    
-    // Add hover effects for service cards
+document.addEventListener('DOMContentLoaded', function() {
     const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-        });
-        
+        card.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-8px) scale(1.02)'; });
         card.addEventListener('mouseleave', function() {
-            if (this.classList.contains('service-card--featured')) {
-                this.style.transform = 'translateY(-8px) scale(1.05)';
-            } else {
-                this.style.transform = 'translateY(0) scale(1)';
-            }
+            this.style.transform = this.classList.contains('service-card--featured') ? 'translateY(-8px) scale(1.05)' : 'translateY(0) scale(1)';
         });
     });
-}
-
-// Initialize additional features
-document.addEventListener('DOMContentLoaded', function() {
-    initAdditionalFeatures();
 });
 
-// Handle form submission success (if returning from FormSubmit)
 window.addEventListener('load', function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
+    const p = new URLSearchParams(window.location.search);
+    if (p.get('success') === 'true') {
         showMessage('Köszönjük üzenetét! Hamarosan felvesszük Önnel a kapcsolatot.', 'success');
-        
-        // Clear the form
         const form = document.getElementById('contactForm');
-        if (form) {
-            form.reset();
-        }
-        
-        // Remove success parameter from URL
+        if (form) form.reset();
         window.history.replaceState({}, document.title, window.location.pathname);
     }
 });
 
 // Fejléc scroll effekt
 (function () {
-    var header = document.querySelector('.header');
+    var header    = document.querySelector('.header');
     var threshold = 60;
-
-    function onScroll() {
-        if (window.scrollY > threshold) {
-            header.classList.add('header--scrolled');
-        } else {
-            header.classList.remove('header--scrolled');
-        }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', function() {
+        header.classList.toggle('header--scrolled', window.scrollY > threshold);
+    }, { passive: true });
 })();
