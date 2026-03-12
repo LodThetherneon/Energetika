@@ -553,8 +553,25 @@ select.form-control {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
   z-index: 1000;
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: background 0.3s ease, box-shadow 0.3s ease,
+    border-color 0.3s ease, margin 0.3s ease,
+    border-radius 0.3s ease, left 0.3s ease,
+    right 0.3s ease, top 0.3s ease;
 }
+
+/* Görgetett állapot – lebegő block hatás */
+.header--scrolled {
+  top: 12px;
+  left: 16px;
+  right: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(39, 165, 56, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
 
 .nav {
   display: flex;
