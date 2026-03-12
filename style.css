@@ -1364,7 +1364,7 @@ select.form-control {
   border-radius: var(--radius-lg);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   z-index: 9999;
-  opacity: 0;
+  opacity: 0.2;
   transition: transform 0.4s var(--ease-standard), opacity 0.4s var(--ease-standard);
   pointer-events: none;
 }
